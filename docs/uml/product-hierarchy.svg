@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="560" viewBox="0 0 860 560" font-family="Arial, Helvetica, sans-serif" font-size="13">
+  <rect width="860" height="560" fill="#ffffff"/>
+  <defs>
+    <style>
+      .box { fill: #fefece; stroke: #333; stroke-width: 1.3; }
+      .sep { stroke: #333; stroke-width: 1.3; }
+      .name { font-weight: bold; font-size: 14px; }
+      .stereo { font-size: 12px; }
+      .abs { font-style: italic; }
+      .solid { stroke: #333; stroke-width: 1.3; fill: none; }
+      .dashed { stroke: #333; stroke-width: 1.3; fill: none; stroke-dasharray: 6 4; }
+      .tri { fill: #ffffff; stroke: #333; stroke-width: 1.3; }
+    </style>
+  </defs>
+
+  <!-- ===== Product (abstract) ===== -->
+  <rect class="box" x="60" y="30" width="280" height="180"/>
+  <text class="name abs" x="200" y="51" text-anchor="middle">Product</text>
+  <line class="sep" x1="60" y1="60" x2="340" y2="60"/>
+  <text x="72" y="80">- id : Long</text>
+  <text x="72" y="98">- name : String</text>
+  <text x="72" y="116">- price : double</text>
+  <line class="sep" x1="60" y1="126" x2="340" y2="126"/>
+  <text class="abs" x="72" y="146">+ getSummary() : String</text>
+  <text x="72" y="164">+ getId() : Long</text>
+  <text x="72" y="182">+ getName() : String</text>
+  <text x="72" y="200">+ getPrice() : double</text>
+
+  <!-- ===== Discountable (interface) ===== -->
+  <rect class="box" x="500" y="30" width="300" height="104"/>
+  <text class="stereo" x="650" y="47" text-anchor="middle">«interface»</text>
+  <text class="name abs" x="650" y="65" text-anchor="middle">Discountable</text>
+  <line class="sep" x1="500" y1="74" x2="800" y2="74"/>
+  <line class="sep" x1="500" y1="84" x2="800" y2="84"/>
+  <text x="512" y="104">+ applyDiscount(rate : double) : void</text>
+  <text x="512" y="122">+ getDiscountedPrice() : double</text>
+
+  <!-- ===== DigitalProduct ===== -->
+  <rect class="box" x="50" y="330" width="300" height="198"/>
+  <text class="name" x="200" y="351" text-anchor="middle">DigitalProduct</text>
+  <line class="sep" x1="50" y1="360" x2="350" y2="360"/>
+  <text x="62" y="380">- downloadUrl : String</text>
+  <text x="62" y="398">- fileSizeMB : double</text>
+  <text x="62" y="416">- discountedPrice : double</text>
+  <line class="sep" x1="50" y1="426" x2="350" y2="426"/>
+  <text x="62" y="446">+ getSummary() : String</text>
+  <text x="62" y="464">+ applyDiscount(rate : double) : void</text>
+  <text x="62" y="482">+ getDiscountedPrice() : double</text>
+  <text x="62" y="500">+ getDownloadUrl() : String</text>
+  <text x="62" y="518">+ getFileSizeMB() : double</text>
+
+  <!-- ===== PhysicalProduct ===== -->
+  <rect class="box" x="500" y="330" width="300" height="198"/>
+  <text class="name" x="650" y="351" text-anchor="middle">PhysicalProduct</text>
+  <line class="sep" x1="500" y1="360" x2="800" y2="360"/>
+  <text x="512" y="380">- weightKg : double</text>
+  <text x="512" y="398">- dimensions : String</text>
+  <text x="512" y="416">- discountedPrice : double</text>
+  <line class="sep" x1="500" y1="426" x2="800" y2="426"/>
+  <text x="512" y="446">+ getSummary() : String</text>
+  <text x="512" y="464">+ applyDiscount(rate : double) : void</text>
+  <text x="512" y="482">+ getDiscountedPrice() : double</text>
+  <text x="512" y="500">+ getWeightKg() : double</text>
+  <text x="512" y="518">+ getDimensions() : String</text>
+
+  <!-- ===== Generalisation (extends): SOLID line, hollow triangle at Product ===== -->
+  <polyline class="solid" points="200,330 200,226"/>
+  <polyline class="solid" points="580,330 580,270 200,270"/>
+  <polygon class="tri" points="200,210 191,226 209,226"/>
+
+  <!-- ===== Realisation (implements): DASHED line, hollow triangle at Discountable ===== -->
+  <polyline class="dashed" points="320,330 320,300 650,300"/>
+  <polyline class="dashed" points="650,330 650,150"/>
+  <polygon class="tri" points="650,134 641,150 659,150"/>
+
+  <!-- labels -->
+  <text x="390" y="264" font-size="11" fill="#555" text-anchor="middle">extends</text>
+  <text x="440" y="294" font-size="11" fill="#555" text-anchor="middle">implements</text>
+</svg>
