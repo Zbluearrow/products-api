@@ -1,11 +1,12 @@
 @startuml
 
-class Product {
+abstract class Product {
   - id : Long
   - name : String
   - price : double
   + Product()
   + Product(id : Long, name : String, price : double)
+  + {abstract} getSummary() : String
   + getId() : Long
   + getName() : String
   + getPrice() : double
@@ -22,6 +23,7 @@ class ProductService {
   + addProduct(product : Product) : Product
   + deleteProduct(id : Long) : void
   + findByName(name : String) : List<Product>
+  + getAllSummaries() : List<String>
 }
 
 class ProductController {
@@ -29,7 +31,8 @@ class ProductController {
   + getAllProducts() : List<Product>
   + getProductById(id : Long) : Product
   + search(name : String) : List<Product>
-  + addProduct(product : Product) : Product
+  + getSummaries() : List<String>
+  + addProduct(product : DigitalProduct) : Product
   + deleteProduct(id : Long) : void
 }
 
